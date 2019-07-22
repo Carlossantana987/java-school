@@ -23,6 +23,7 @@ public class StudentController
 
     // Please note there is no way to add students to course yet!
 
+    //localhost:2019/students/students
     @GetMapping(value = "/students", produces = {"application/json"})
     public ResponseEntity<?> listAllStudents()
     {
@@ -30,6 +31,7 @@ public class StudentController
         return new ResponseEntity<>(myStudents, HttpStatus.OK);
     }
 
+    //localhost:2019/students/Student/{studentId}
     @GetMapping(value = "/Student/{StudentId}",
                 produces = {"application/json"})
     public ResponseEntity<?> getStudentById(
@@ -40,7 +42,7 @@ public class StudentController
         return new ResponseEntity<>(r, HttpStatus.OK);
     }
 
-
+    //localhost:2019/students/student/namelike/{name}
     @GetMapping(value = "/student/namelike/{name}",
                 produces = {"application/json"})
     public ResponseEntity<?> getStudentByNameContaining(
@@ -50,7 +52,7 @@ public class StudentController
         return new ResponseEntity<>(myStudents, HttpStatus.OK);
     }
 
-
+    //localhost:2019/students/Student
     @PostMapping(value = "/Student",
                  consumes = {"application/json"},
                  produces = {"application/json"})
@@ -68,7 +70,7 @@ public class StudentController
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-
+    //localhost:2019/students/Student/{Studentid}
     @PutMapping(value = "/Student/{Studentid}")
     public ResponseEntity<?> updateStudent(
             @RequestBody
@@ -80,7 +82,7 @@ public class StudentController
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
+    //localhost:2019/students/Student/{Studentid}
     @DeleteMapping("/Student/{Studentid}")
     public ResponseEntity<?> deleteStudentById(
             @PathVariable
