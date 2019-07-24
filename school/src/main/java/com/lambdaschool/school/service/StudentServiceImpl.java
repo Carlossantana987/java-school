@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService
     public List<Student> findAll(Pageable pageable)
     {
         List<Student> list = new ArrayList<>();
-        studrepos.findAll(pageable).iterator().forEachRemaining(list::add);
+       studrepos.findAll(pageable).iterator().forEachRemaining(list::add);
         return list;
     }
 
