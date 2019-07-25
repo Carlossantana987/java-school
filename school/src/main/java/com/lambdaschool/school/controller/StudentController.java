@@ -45,7 +45,7 @@ public class StudentController
     {
         logger.trace(request.getMethod() + request.getRequestURI() + " accessed");
 
-        List<Student> myStudents = studentService.findAll();
+        List<Student> myStudents = studentService.findAll(pageable);
         return new ResponseEntity<>(myStudents, HttpStatus.OK);
     }
 

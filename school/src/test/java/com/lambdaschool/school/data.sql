@@ -10,10 +10,20 @@ FROM student;
 DELETE
 FROM instructor;
 
+
+
 INSERT INTO instructor (instructid, instructname)
     VALUES(1, 'Sally'),
           (2, 'Lucy'),
           (3, 'Charlie');
+
+INSERT INTO course (coursename)
+    VALUES('Data Science'),
+          ('JavaScript'),
+          ('Node.js'),
+          ('Java Back End'),
+          ('Mobile IOS'),
+          ('Mobile Android'),
 
 INSERT INTO course (courseid, coursename, instructid)
 	VALUES (1, 'Data Science', 1),

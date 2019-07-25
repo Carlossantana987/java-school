@@ -2,6 +2,7 @@ package com.lambdaschool.school.service;
 
 
 import com.lambdaschool.school.SchoolApplication;
+import com.lambdaschool.school.exceptions.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,16 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
 import static junit.framework.TestCase.assertEquals;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest( classes = SchoolApplication.class)
-public class StudentServiceImplTest
+@SpringBootTest(classes = SchoolApplication.class)
+public class CourseServiceimplTest
 {
+
     @Autowired
-    StudentService studentService;
+    CourseService courseService;
 
     @Before
     public void setUp() throws Exception
@@ -29,14 +29,23 @@ public class StudentServiceImplTest
     }
 
     @Test
-    public void findAll()
+    public void findCourseById()
     {
-        assertEquals(13, studentService.findAll(Pageable.unpaged()).size());
+        assertEquals("Data Science", courseService.findCourseById(1).getCoursename());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void deleteNotFound()
+    {
+        courseService.delete(100);
+        assertEquals(5,courseService.findAll(Pageable.unpaged()).size());
     }
 
     @Test
-    public void findStudentsById()
+    public void deleteFound()
     {
+        courseService.delete(6);
+        assertEquals(5,courseService.findAll(Pageable.unpaged()).size());
 
     }
 
