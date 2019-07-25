@@ -32,7 +32,7 @@ public class StudentController
 
     // Please note there is no way to add students to course yet!
 
-    //localhost:2019/students/students/?page=1&size=1
+    //localhost:2019/students/students/  ?page=1&size=1
 
     //Value and description is the same thing.........responseContainer tells what were returning
     @ApiOperation(value = "returns all Students with paging Ability", responseContainer = "List")
@@ -45,7 +45,7 @@ public class StudentController
     {
         logger.trace(request.getMethod() + request.getRequestURI() + " accessed");
 
-        List<Student> myStudents = studentService.findAll(pageable);
+        List<Student> myStudents = studentService.findAll();
         return new ResponseEntity<>(myStudents, HttpStatus.OK);
     }
 

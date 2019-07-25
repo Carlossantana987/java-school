@@ -28,8 +28,7 @@ public class CourseController
             @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query", value = "Sorting criteria in the format: property(,asc|desc). " + "Default sort order is ascending. " + "Multiple sort criteria are supported.")})
     //localhost:2019/courses/courses
     @GetMapping(value = "/courses", produces = {"application/json"})
-    public ResponseEntity<?> listAllCourses( @PageableDefault(page = 0, size = 3)
-                                                         Pageable pageable)
+    public ResponseEntity<?> listAllCourses( @PageableDefault(page = 0, size = 3) Pageable pageable)
     {
         ArrayList<Course> myCourses = courseService.findAll();
         return new ResponseEntity<>(myCourses, HttpStatus.OK);

@@ -20,10 +20,10 @@ public class StudentServiceImpl implements StudentService
     private StudentRepository studrepos;
 
     @Override
-    public List<Student> findAll(Pageable pageable)
+    public List<Student> findAll()
     {
         List<Student> list = new ArrayList<>();
-       studrepos.findAll(pageable).iterator().forEachRemaining(list::add);
+       studrepos.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
 

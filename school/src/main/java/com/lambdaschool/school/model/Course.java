@@ -21,7 +21,7 @@ public class Course
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long courseid;
 
-    @ApiModelProperty(name = "courseName", value = "Course Name", required = true, example = "Some Name")
+    @ApiModelProperty(name = "courseName", value = "Course Name", required =true,  example = "Some Name")
     private String coursename;
 
     @ManyToOne
